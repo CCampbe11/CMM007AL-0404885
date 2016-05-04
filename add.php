@@ -73,9 +73,16 @@
                     $category = $_POST['category'];
                     $submitter = $_POST['submitter'];
 
+                    if ($submitter == NULL) {
+                        $submitter = "Anonymous";
+                    }
+
                     $sql = "INSERT INTO blogView (blogviewID,entryTitle,entrySummary,category,submitter) VALUES (NULL,'$entryTitle','$entrySummary','$category','$submitter')";
                     mysqli_query($conn,$sql);
-
+                    mysqli_close($conn);
+                    header('Location: blog.php?category=all');
+                }
+                else {
                     header('Location: index.php');
                 }
 

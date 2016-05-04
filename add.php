@@ -56,7 +56,7 @@
                         </div>
                         <div class=\"field\" >
                             <label>Submitted By:</label>
-                            <input type = \"text\" name = \"submitted\" id = \"submitted\" accesskey=\"4\" placeholder = \"Submitted By (Optional)\" autofocus required >
+                            <input type = \"text\" name = \"submitted\" id = \"submitted\" accesskey=\"4\" placeholder = \"Submitted By (Optional)\" required >
                         </div>
                         <div id = \"right\">
                             <input type = \"submit\" value = \"Submit\">

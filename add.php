@@ -29,36 +29,51 @@
 
             <!-- MAIN STARTS HERE -->
             <main>
-                <div class="grid-100">
-                    <form class="form-input">
-                        <fieldset>
-                            <div class="field">
-                                <label for="title">Entry Title:</label>
-                                <input type="text" name="title" id="title" accesskey="1" placeholder="Entry Title" autofocus required>
-                            </div>
-                            <div class="field">
-                                <label for="summary">Entry Summary:</label>
-                                <textarea name="summary" id="summary" rows="5" cols="28" accesskey="2" placeholder="Entry Summary" required></textarea>
-                            </div>
-                            <div class="field">
-                                <label for="category">Entry Category:</label>
-                                <select name="category" id="category" accesskey="3"  required>
-                                    <option value="" disabled selected>Select category..</option>
-                                    <option value="work">Work</option>
-                                    <option value="university">University</option>
-                                    <option value="family">Family</option>
-                                </select>
-                            </div>
-                            <div class="field">
-                                <label for="submitted">Submitted By:</label>
-                                <input type="text" name="submitted" id="submitted" accesskey="1" placeholder="Submitted By (Optional)">
-                            </div>
-                            <div id="right">
-                                <input type="submit" value="Submit">
-                            </div>
-                        </fieldset>
-                </form>
-                </div>
+                <?php
+
+                if ($_SERVER['REQUEST_METHOD'] === 'GET')
+                {
+                    echo "
+                <div class=\"grid-75\" >
+                    <form class=\"input-form\" action='{$_SERVER['PHP_SELF']}' method='post' >
+
+                        <div class=\"field\" >
+                            <label> Bug Name </label>
+                            <input type = \"text\" name = \"bugName\" placeholder = \"Bug Name\" autofocus required >
+                        </div>
+                        <div class=\"field\" >
+                            <label> Bug Summary </label>
+                            <textarea rows = \"5\" cols = \"50\" name = \"bugSummary\" placeholder = \"Bug Summary\" required ></textarea>
+                        </div>
+                        <div class=\"field\">
+                            <label> Bug Category </label>
+                            <select name = \"bugCategory\" required>
+                                <option value = \"android\" selected > Android</option>
+                                <option value = \"ios\" > iOS</option>
+                                <option value = \"windows\" > Windows</option>
+                            </select>
+                        </div>
+                        <div id = \"btnRight\">
+                            <input type = \"submit\" value = \"Submit\">
+                        </div>
+                    </form>
+                </div>";
+                }
+                elseif ($_SERVER['REQUEST_METHOD'] === 'POST')
+                {
+                    include_once('connection.php');
+
+                    $bugName = $_POST['bugName'];
+                    $bugSummary = $_POST['bugSummary'];
+                    $bugCategory = $_POST['bugCategory'];
+
+                    $sql = "INSERT INTO bugs VALUES (NULL,'$bugName','$bugSummary','$bugCategory')";
+                    mysqli_query($conn,$sql);
+
+                    header('Location: bugs.php');
+                }
+
+                ?>
             </main>
             <!-- MAIN FINISHES HERE -->
 

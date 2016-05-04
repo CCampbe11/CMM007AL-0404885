@@ -68,12 +68,12 @@
                 {
                     include_once('dbconnect.php');
 
-                    $title = $_POST['entryTitle'];
-                    $summary = $_POST['entrySummary'];
+                    $entryTitle = $_POST['entryTitle'];
+                    $entrySummary = $_POST['entrySummary'];
                     $category = $_POST['category'];
                     $submitter = $_POST['submitter'];
 
-                    $sql = "INSERT INTO bugs VALUES (NULL,'$title','$summary','$category','$submitter')";
+                    $sql = "INSERT INTO bugs VALUES (NULL,'$entryTitle','$entrySummary','$category','$submitter')";
                     mysqli_query($conn,$sql);
 
                     header('Location: index.php');

@@ -1,3 +1,14 @@
+<?php
+
+include_once('dbconnect.php');
+
+if ($conn -> connect_errno)
+{
+    die ('Connect failed: ' . $conn->connect_errno);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,14 +40,37 @@
 
             <!-- MAIN STARTS HERE -->
             <main class="grid-100">
-                <div class="grid-75">
-                <p class="indent">Today at work by Ada</p>
-                <p class="indent">Work</p>
-                <p class="indent">Today I went to work and did lots of very complicated coding things. I was very pleased that I
-                    managed to finish them all
-                </p>
-                <hr class="bloghr">
-                </div>
+                <?php
+
+                if ($_GET['category'] == "all")
+                {
+                    $sql = "SELECT * FROM blogView";
+                }
+                else
+                {
+                    $category = $_GET['category'];
+                    $sql = "SELECT * FROM blogView WHERE category='$category'";
+                }
+
+                $result = mysqli_query($conn,$sql);
+
+                if (mysqli_num_rows($result) > 0)
+                {
+                    while ($row = mysqli_fetch_assoc($result))
+                    {
+                        echo "<p>Entry Title: " . $row["entryTitle"] . "</p>";
+                        echo "<p>Entry Summary: <br>" . $row["entrySummary"] . "</p>";
+                        echo "<p>Entry Category: " . $row["category"] . "</p>";
+                        echo "<p>Submitted By: " . $row["submitter"] . "</p>";
+                        echo "<hr>";
+                    }
+                }
+                else
+                {
+                    echo "No blogs found.";
+                }
+
+                ?>
             </main>
             <!-- MAIN FINISHES HERE -->
 
@@ -49,3 +83,9 @@
         </div>
     </body>
 </html>
+
+<?php
+
+mysqli_close($conn);
+
+?>

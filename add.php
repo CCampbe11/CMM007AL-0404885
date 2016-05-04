@@ -68,12 +68,12 @@
                 {
                     include_once('dbconnect.php');
 
-                    $entryTitle = $_POST['entryTitle'];
-                    $entrySummary = $_POST['entrySummary'];
+                    $title = $_POST['title'];
+                    $summary = $_POST['summary'];
                     $category = $_POST['category'];
-                    $submitter = $_POST['submitter'];
+                    $submitted = $_POST['submitted'];
 
-                    $sql = "INSERT INTO blogView (blogviewID,entryTitle,entrySummary,category,submitter) VALUES (NULL,'$entryTitle','$entrySummary','$category','$submitter')";
+                    $sql = "INSERT INTO blogView (blogviewID,entryTitle,entrySummary,category,submitter) VALUES (NULL,'$title','$summary','$category','$submitted')";
                     mysqli_query($conn,$sql);
 
                     header('Location: index.php');

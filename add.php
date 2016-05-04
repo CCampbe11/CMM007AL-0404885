@@ -47,7 +47,7 @@
                         </div>
                         <div class=\"field\">
                             <label>Entry Category:</label>
-                            <select name = \"bugCategory\" id = \"category\" accesskey=\"3\" required>
+                            <select name = \"category\" id = \"category\" accesskey=\"3\" required>
                                 <option value = \"\" disabled  selected >Select category..</option>
                                 <option value = \"work\" selected >Work</option>
                                 <option value = \"university\" >University</option>

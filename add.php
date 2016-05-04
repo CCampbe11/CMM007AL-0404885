@@ -34,24 +34,29 @@
                 if ($_SERVER['REQUEST_METHOD'] === 'GET')
                 {
                     echo "
-                <div class=\"grid-75\" >
-                    <form class=\"input-form\" action='{$_SERVER['PHP_SELF']}' method='post' >
+                <div class=\"grid-100\" >
+                    <form class=\"form-input\" action='{$_SERVER['PHP_SELF']}' method='post' >
 
                         <div class=\"field\" >
-                            <label> Bug Name </label>
-                            <input type = \"text\" name = \"bugName\" placeholder = \"Bug Name\" autofocus required >
+                            <label>Entry Title:</label>
+                            <input type = \"text\" name = \"title\" id = \"title\" accesskey=\"1\" placeholder = \"Entry Title\" autofocus required >
                         </div>
                         <div class=\"field\" >
-                            <label> Bug Summary </label>
-                            <textarea rows = \"5\" cols = \"50\" name = \"bugSummary\" placeholder = \"Bug Summary\" required ></textarea>
+                            <label>Entry Summary:</label>
+                            <textarea rows = \"5\" cols = \"28\" name = \"summary\" id = \"summary\" accesskey=\"2\" placeholder = \"Entry Summary\" required ></textarea>
                         </div>
                         <div class=\"field\">
-                            <label> Bug Category </label>
-                            <select name = \"bugCategory\" required>
-                                <option value = \"android\" selected > Android</option>
-                                <option value = \"ios\" > iOS</option>
-                                <option value = \"windows\" > Windows</option>
+                            <label>Entry Category:</label>
+                            <select name = \"bugCategory\" id = \"category\" accesskey=\"3\" required>
+                                <option value = \"\" disabled  selected >Select category..</option>
+                                <option value = \"work\" selected >Work</option>
+                                <option value = \"university\" >University</option>
+                                <option value = \"family\" >Family</option>
                             </select>
+                        </div>
+                        <div class=\"field\" >
+                            <label>Submitted By:</label>
+                            <input type = \"text\" name = \"submitted\" id = \"submitted\" accesskey=\"4\" placeholder = \"Entry Title\" autofocus required >
                         </div>
                         <div id = \"btnRight\">
                             <input type = \"submit\" value = \"Submit\">

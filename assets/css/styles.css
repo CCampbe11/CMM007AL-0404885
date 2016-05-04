@@ -1,0 +1,132 @@
+/*--START OF CSS--*/
+
+body {
+    font-family: 'Lato', sans-serif; /* FROM GOOGLE FONTS */
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    clear: both;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: inline;
+    padding: 0 5px 0 0px;
+}
+
+li a {
+    text-decoration: none;
+    display: inline-block;
+    color: #676767;
+    background-color: #F17120;
+    font-size: 25px;
+    border: #676767 solid 1px ;
+
+}
+
+main > .section1 {
+    height: auto;
+}
+
+.maintext {
+    text-align: justify;
+    padding: 0 0 0 15px;
+}
+
+.indent {
+    text-align: justify;
+    padding: 0 0 0 20px;
+}
+
+.logo img {
+    max-width: 400px;
+    float: right;
+}
+
+.form-input {
+    padding: 75px 0 75px 250px;
+}
+
+.form-input fieldset {
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 1.35em 0.625em 0.75em 0.75em;
+    border: none;
+    max-width: 441px;
+}
+
+.form-input .field {
+    padding: 4px;
+    margin: 1px;
+}
+
+.form-input .field label {
+    display: inline-block;
+    width: 120px;
+    margin: 0 40px 0 2px;
+    font-family: inherit;
+    font-size: inherit;
+    vertical-align: top;
+    padding: 0;
+}
+
+.form-input .field input {
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    width: 252px;
+}
+
+.form-input .field textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.form-input .field #category {
+    width: 257px;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.form-input #right {
+    text-align: right;
+    margin-right: 14px;
+}
+
+
+/*--FOOTER CSS--*/
+footer {
+    clear: both;
+}
+
+footer p {
+    font-size: 20px;
+}
+/*--------------*/
+
+/*--END OF CSS--*/

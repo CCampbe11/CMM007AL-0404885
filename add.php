@@ -16,10 +16,10 @@
                 <h2>because the internet needs to know what I think</h2>
                 <nav class="grid-100">
                     <ul>
-                        <li><a href="blog.php">All Blog Items</a></li>
-                        <li><a href="blog.php">Work Items</a></li>
-                        <li><a href="blog.php">University Items</a></li>
-                        <li><a href="blog.php">Family Items</a></li>
+                        <li><a href="blog.php?category=all">All Blog Items</a></li>
+                        <li><a href="blog.php?category=work">Work Items</a></li>
+                        <li><a href="blog.php?category=university">University Items</a></li>
+                        <li><a href="blog.php?category=family">Family Items</a></li>
                         <li><a href="add.php">Insert a Blog Items</a></li>
                     </ul>
                 </nav>
@@ -58,7 +58,7 @@
                             <label>Submitted By:</label>
                             <input type = \"text\" name = \"submitted\" id = \"submitted\" accesskey=\"4\" placeholder = \"Entry Title\" autofocus required >
                         </div>
-                        <div id = \"btnRight\">
+                        <div id = \"right\">
                             <input type = \"submit\" value = \"Submit\">
                         </div>
                     </form>
@@ -66,16 +66,17 @@
                 }
                 elseif ($_SERVER['REQUEST_METHOD'] === 'POST')
                 {
-                    include_once('connection.php');
+                    include_once('dbconnect.php');
 
-                    $bugName = $_POST['bugName'];
-                    $bugSummary = $_POST['bugSummary'];
-                    $bugCategory = $_POST['bugCategory'];
+                    $title = $_POST['entryTitle'];
+                    $summary = $_POST['entrySummary'];
+                    $category = $_POST['category'];
+                    $submitter = $_POST['submitter'];
 
-                    $sql = "INSERT INTO bugs VALUES (NULL,'$bugName','$bugSummary','$bugCategory')";
+                    $sql = "INSERT INTO bugs VALUES (NULL,'$title','$summary','$category','$submitter')";
                     mysqli_query($conn,$sql);
 
-                    header('Location: bugs.php');
+                    header('Location: index.php');
                 }
 
                 ?>

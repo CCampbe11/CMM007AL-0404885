@@ -59,8 +59,8 @@ if ($conn -> connect_errno)
                     while ($row = mysqli_fetch_assoc($result))
                     {
                         echo "<p>" . $row["entryTitle"] . " by " . $row["submitter"] ."</p>";
-                        echo "<p>" . $row["entrySummary"] . "</p>";
                         echo "<p>" . $row["category"] . "</p>";
+                        echo "<p>" . $row["entrySummary"] . "</p>";
                         echo "<hr>";
                     }
                 }

@@ -56,7 +56,7 @@
                         </div>
                         <div class=\"field\" >
                             <label>Submitted By:</label>
-                            <input type = \"text\" name = \"submitted\" id = \"submitted\" accesskey=\"4\" placeholder = \"Submitted By (Optional)\" required >
+                            <input type = \"text\" name = \"submitter\" id = \"submitter\" accesskey=\"4\" placeholder = \"Submitted By (Optional)\" required >
                         </div>
                         <div id = \"right\">
                             <input type = \"submit\" value = \"Submit\">
@@ -68,12 +68,12 @@
                 {
                     include_once('dbconnect.php');
 
-                    $title = $_POST['title'];
-                    $summary = $_POST['summary'];
+                    $entryTitle = $_POST['title'];
+                    $entrySummary = $_POST['summary'];
                     $category = $_POST['category'];
-                    $submitted = $_POST['submitted'];
+                    $submitter = $_POST['submitter'];
 
-                    $sql = "INSERT INTO blogView (blogviewID,entryTitle,entrySummary,category,submitter) VALUES (NULL,'$title','$summary','$category','$submitted')";
+                    $sql = "INSERT INTO blogView (blogviewID,entryTitle,entrySummary,category,submitter) VALUES (NULL,'$entryTitle','$entrySummary','$category','$submitter')";
                     mysqli_query($conn,$sql);
 
                     header('Location: index.php');
